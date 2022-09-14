@@ -6,20 +6,25 @@
                 <v-card min-width="500px" class="pa-4">
                     <v-card-title>Registrar</v-card-title>
                     <v-text-field label ="Nome"
+                    v-model="userRegister.name"
                     outlined>
                     </v-text-field>
                       <v-text-field label ="Email"
+                      v-model="userRegister.email"
                     outlined>
                     </v-text-field>
                     <v-text-field
+                    v-model="userRegister.username"
                     outlined
                     label="Usuário">
                     </v-text-field>
                     <v-text-field
+                    v-model="userRegister.password"
                     outlined
                     label="Senha">
                     </v-text-field>
                     <v-text-field
+                    v-model="userRegister.password_confirmation"
                     outlined
                     label="Confirme a senha">
                     </v-text-field>
@@ -42,9 +47,10 @@ export default {
         return{
             userRegister:{
                 name: '',
-                password: '',
-                confirmPassarword: '',
                 email: '',
+                username: '',
+                password: '',
+                password_confirmation: '',
             }
         }
     }
