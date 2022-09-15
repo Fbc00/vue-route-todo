@@ -38,7 +38,7 @@ export default new Router ({
         component: PrivateLayout,
         children: [ { 
             path: ':id',
-            name: 'taskUpdade',
+            name: 'taskUpdate',
             component: TaskUpdateView,
         },
         {

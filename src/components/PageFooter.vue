@@ -14,7 +14,7 @@
             <v-btn
               icon
               color="white"
-              href="https://github.com/huogerac/crud-js-materialize-vuejs"
+              href="https://github.com/Fbc00/vue-route-todo"
             >
               <v-icon>fa-brands fa-github</v-icon>
             </v-btn>
