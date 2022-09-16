@@ -15,7 +15,7 @@ app.use(bodyParser.text())
 app.use(bodyParser.json())
 
 //CONFIG
-const PORT = process.env.API_PORT || 3001
+const PORT = process.env.API_PORT || 3000
 const ORIGIN_URL = process.env.ORIGIN_URL || '*'
 
 app.use(cors({ credentials: true, origin: ORIGIN_URL }))

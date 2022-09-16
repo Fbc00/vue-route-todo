@@ -6,9 +6,8 @@ function sleep(ms) {
 
 function getUser(username, password) {
   const user = data.users.find((user) => user.username === username)
-  if (!user || password != username) {
-    console.log('login invalido!')
-    return
+  if (!user || username !== password) {
+    console.log('Login inválido')
   }
   return user
 }

@@ -2,24 +2,24 @@ import instanciaAxios from './instancia'
 
 export default{
     getTasks: (callback) =>{ 
-        instanciaAxios.get('/tasks').then(response => {
+        instanciaAxios.get('/api/tasks').then(response => {
             callback(response.data);
-        })
+        }).catch(error => {  console.log(error); })
 
     },
     postTask(task, callback){ 
-        instanciaAxios.post('/tasks', task).then(response => { 
+        instanciaAxios.post('/api/tasks', task).then(response => { 
             callback(response.data);
         })
     },
     editTask(task, callback) {
-       instanciaAxios.patch(`tasks/${task.id}/`, task).then(response => {
+       instanciaAxios.patch(`/api/tasks/${task.id}/`, task).then(response => {
             callback(response.data);
         })
     },
 
     deleteTask(id, callback) { 
-        instanciaAxios.delete(`tasks/${id}/`).then(response => {
+        instanciaAxios.delete(`/api/tasks/${id}/`).then(response => {
             callback(response.data);
         })
     }

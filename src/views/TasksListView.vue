@@ -50,10 +50,23 @@ export default {
     },
     created() {
         queries.getTasks(callback => {
-            this.tasks = callback
+            this.tasks = callback.tasks
             console.log(this.tasks)
         })
+    },
+    beforeCreate() {
+        localStorage.getItem('userTOken') ? this.$router.push({ name: 'taskList' }) : this.$router.push({ name: 'login' })
+        const userToke = JSON.parse(localStorage.getItem('userTOken'))  
+        const diaDeHoje = new Date().getDay()
+        const diaHoraAtual = new Date().getHours()
+        const DiaToken = new Date(userToke.DiaHora).getDay()
+        const horaToken = new Date(userToke.DiaHora).getHours()
+        if (diaDeHoje !== DiaToken || diaHoraAtual - horaToken > 1) {
+            this.$router.push({ name: 'login' })
+            localStorage.clear()
+        }       
     }
+
 }
 </script>
 
