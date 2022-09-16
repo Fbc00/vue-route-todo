@@ -4,7 +4,9 @@
             <v-card  v-for="tarefa in tasks" :key="tarefa.id" elevation="4"
             class="col"
             color="#d3d3d3"
-            outlined>
+            outlined 
+            :loading="loading"
+            >
                 <v-card-subtitle class="card-title">  {{ tarefa.title }}</v-card-subtitle>
                 <v-card-text>
                     {{ tarefa.project }}
@@ -30,13 +32,21 @@ import queries from '@/api/queries'
 export default {
     data() {
         return {
-            tasks: []
+            tasks: [],
+            loading: false,
         }
     },
     methods: {
         EditarTask(tarefa) {
             this.$router.push({ name: 'taskUpdate', params: { id: tarefa.id }, query: { title: tarefa.title, project: tarefa.project, usuario: tarefa.usuario } })
         },
+        deletarTask(tarefa) {
+            this.loading = true
+            queries.deleteTask(tarefa.id, callback => {
+                this.loading = false
+                console.log(callback)
+            })
+        }
     },
     created() {
         queries.getTasks(callback => {

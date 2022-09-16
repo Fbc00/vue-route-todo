@@ -11,9 +11,14 @@
 import PageBarVue from '@/components/PageBar.vue';
 import PageFooterVue from '@/components/PageFooter.vue';
 export default {
-    components: {PageBarVue, PageFooterVue}
+    components: {PageBarVue, PageFooterVue},
+    beforeCreate() {
+        return
+    //     localStorage.getItem('logado') ? this.$router.push({ name: 'tasks' }) : this.$router.push({ name: 'login' })
+    }
 
 }
+
 </script>
 
 <style>

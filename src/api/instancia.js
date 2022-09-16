@@ -1,6 +1,7 @@
 import axios from 'axios';
+import url from '@/settings'
 const instanciaAxios = axios.create({ 
-    baseURL: "http://localhost:3000"
+    baseURL: url.apiBaseUrl,
 })
 
 export default instanciaAxios;
